@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Passbook</string>
+    <string name="note_link_tel">拨打电话</string>
+    <string name="note_link_email">发送电子邮件</string>
+    <string name="note_link_web">打开网页</string>
+    <string name="note_link_other">打开地图</string>
+    <string name="menu_select_all">全选</string>
+    <string name="menu_delete">删除</string>
+    <string name="menu_select_title">已选择 %d 项</string>
+    <string name="menu_deselect_all">取消全选</string>
+    <string name="alert_title_delete">删除</string>
+    <string name="alert_message_delete_notes">确认要删除所选的%d条记录吗？</string>
+
+
+
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/blackBackground">
+    
+    <EditText
+        android:id="@+id/edt_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:hint="请输入标题"
+        android:textColorHint="#535353"
+        android:textColor="#999999"
+        android:textCursorDrawable="@drawable/edit_default_cursor"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <com.xinyue.passbook.widget.NoteEditText
+            android:id="@+id/edt_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left|top"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@null"
+            android:autoLink="all"
+            android:linksClickable="false"
+            android:minLines="12"
+            android:lineSpacingMultiplier="1.2"
+            android:hint="请输入内容"
+            android:textColorHint="#535353"
+            android:textColor="#999999"
+            android:textCursorDrawable="@drawable/edit_default_cursor"
+            />
+    </ScrollView>
+
+
+
+</LinearLayout>
