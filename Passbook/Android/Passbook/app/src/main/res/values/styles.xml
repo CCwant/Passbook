@@ -1,0 +1,103 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!--AppBar背景色-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--状态栏背景色-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <!-- Action Bar Styles -->
+        <!--标题栏高度-->
+        <item name="actionBarSize">@dimen/actionBarSize</item>
+        <!--标题栏样式-取消系统默认-->
+        <item name="actionBarStyle">@style/ActionBarBaseStyle</item>
+
+        <!--控制各个控件被选中时的颜色-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--各个控制控件的默认颜色-->
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+        <!--各个控制控件的点击时的颜色-->
+        <item name="colorControlHighlight">@color/ripple_material_dark</item>
+
+        <!-- Button styles -->
+        <item name="buttonStyle">@style/ButtonBaseStyle</item>
+
+        <!-- Action Mode -->
+        <item name="actionModeStyle">@style/BaseActionModeStyle</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButtonBaseStyle</item>
+
+        <item name="alertDialogStyle">@style/CustomAlertDialog</item>
+        <item name="dialogTheme">@style/CustomAlertDialog</item>
+        <item name="alertDialogTheme">@style/CustomAlertDialog</item>
+    </style>
+    <!-- Dialog style -->
+    <style name="CustomAlertDialog" parent="android:style/Theme.Dialog">
+
+        <item name="android:windowIsTranslucent">true</item>
+        <!--背景颜色及透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否有标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+    <style name="BaseActionModeStyle" parent="android:Widget">
+        <item name="background">@color/colorPrimary</item>
+        <item name="backgroundSplit">?attr/actionModeSplitBackground</item>
+        <item name="height">@dimen/actionBarSize</item>
+        <item name="titleTextStyle">@style/ActionBarTextStyle</item>
+        <item name="subtitleTextStyle">@style/ActionBarTextStyle</item>
+        <item name="closeItemLayout">@layout/abc_action_mode_close_item</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+    </style>
+    <style name="ActionBarTextStyle" parent="android:TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <!--标题栏样式-->
+    <style name="ActionBarBaseStyle" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="background">@color/colorPrimary</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+        <!--去掉阴影-->
+        <item name="elevation">0dp</item>
+        <item name="titleTextStyle">@style/ActionBarTextStyle</item>
+    </style>
+    <!--按钮样式-->
+    <style name="ButtonBaseStyle" parent="android:Widget">
+        <item name="android:background">@drawable/btn_default_holo_light</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceButton</item>
+        <item name="android:minHeight">48dip</item>
+        <item name="android:minWidth">48dip</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+    <!--ActionBar按钮样式-->
+    <style name="ActionButtonBaseStyle" parent="android:Widget">
+        <item name="android:background">@drawable/btn_default_holo_light</item>
+        <item name="android:minWidth">@dimen/abc_action_button_min_width_material</item>
+        <item name="android:minHeight">@dimen/abc_action_button_min_height_material</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="textAllCaps">@bool/abc_config_actionMenuItemAllCaps</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+
+
+</resources>
