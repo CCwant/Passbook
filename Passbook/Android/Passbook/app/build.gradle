@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao'
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.xinyue.passbook"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags "-frtti -fexceptions"
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+}
+
+dependencies {
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    //ActiveAndroid 数据库框架
+    //compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+    compile 'org.greenrobot:greendao:3.1.0'
+    //ButterKnife  IOC框架
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+    testCompile 'junit:junit:4.12'
+    compile files('libs/passwd.jar')
+}
+greendao {
+    schemaVersion 1
+    daoPackage 'com.xinyue.passbook.db.dao'
+    targetGenDir 'src/main/java'
+}
+
+
+public class BuildTimeListener implements TaskExecutionListener,BuildListener{
+
+
+    private Clock clock
+    private times=[]
+
+
+    @Override
+    void buildStarted(Gradle gradle) {
+
+    }
+
+    @Override
+    void settingsEvaluated(Settings settings) {
+
+    }
+
+    @Override
+    void projectsLoaded(Gradle gradle) {
+
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+
+    }
+
+    @Override
+    void buildFinished(BuildResult buildResult) {
+        println "Task spend time:"
+        for(time in times){
+            if(time[0] >= 10){
+                printf "%7sms %s\n",time
+            }
+        }
+    }
+
+    @Override
+    void beforeExecute(Task task) {
+        clock = new org.gradle.util.Clock()
+    }
+    @Override
+    void afterExecute(Task task, TaskState taskState) {
+        def ms=clock.timeInMs
+        times.add([ms,task.path])
+
+    }
+
+}
+project.gradle.addListener(new BuildTimeListener())
